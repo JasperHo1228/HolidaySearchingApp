@@ -1,0 +1,9 @@
+A Holiday searching Java web application
+
+Utilised the holiday data in JSON file from Hong Kong government official website
+Parsing JSON file in Spring boot application
+Used Spring boot to write all the data from JSON file in H2 database
+Applied Thymeleaf to build up an user interface
+Created a Get Data button to get and show all the holiday data on user page from a persistent database
+Created two input field to filter the holidays by date range.
+

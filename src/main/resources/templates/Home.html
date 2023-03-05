@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Hong Kong Holiday</title>
+</head>
+<body>
+<div class = "container">
+    <div style="text-align:center">
+        <h1>Hong Kong Holiday Calendar</h1>
+    </div>
+    <br>
+    <div>
+
+    <form th:action="@{/home/filter}" method="get" style="text-align:center">
+
+        <a th:href = "@{/home/all}"
+           class = "btn btn-primary"
+           id = "all"
+           style="text-align:left"> Get Data </a>
+
+            <input
+                type="date"
+                id="filter_start"
+                name = "dtstart"
+                placeholder="Start Date">
+
+            <input
+            type ="date"
+            id = "filter_end"
+            name = "dtend"
+            placeholder="End Date">
+
+            <button type="submit" class = "btn btn-secondary" style="text-align:right">Search</button>
+    </form>
+    </div>
+    <br>
+<table class = "table table-striped table-dark">
+    <thead class = "table table-sm table-dark">
+    <tr>
+        <th class = "table-warning" >ID</th>
+        <th class = "table-success" >Start</th>
+        <th class = "table-info">End</th>
+        <th class ="table-primary">Summary</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each = "day: ${data}">
+        <td th:text = "${day.uid}" ></td>
+        <td th:text = "${day.dtstart}"></td>
+        <td th:text = "${day.dtend}"></td>
+        <td th:text = "${day.summary}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>
